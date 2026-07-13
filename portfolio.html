@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bruce John B. Arevalo — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0d0f12;
+    --bg-raised: #14171b;
+    --ink: #ececee;
+    --ink-dim: #9a9ea5;
+    --ink-faint: #5f636b;
+    --brass: #c9a24b;
+    --brass-dim: #7d6a3a;
+    --line: #24272c;
+    --display: 'Fraunces', serif;
+    --body: 'Inter', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--body);
+    font-weight:300;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  ::selection{ background:var(--brass); color:#0d0f12; }
+
+  a{ color:inherit; text-decoration:none; }
+
+  .wrap{
+    max-width:1080px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* ---------- nav ---------- */
+  header{
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:50;
+    background:rgba(13,15,18,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    height:72px;
+  }
+  .monogram{
+    font-family:var(--display);
+    font-weight:600;
+    font-size:20px;
+    letter-spacing:0.02em;
+  }
+  .monogram span{ color:var(--brass); }
+  .navlinks{
+    display:flex;
+    gap:36px;
+    font-family:var(--mono);
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    color:var(--ink-dim);
+  }
+  .navlinks a{ transition:color .25s ease; position:relative; }
+  .navlinks a:hover, .navlinks a:focus-visible{ color:var(--ink); }
+  .navlinks a::after{
+    content:'';
+    position:absolute;
+    left:0; bottom:-6px;
+    width:0%; height:1px;
+    background:var(--brass);
+    transition:width .25s ease;
+  }
+  .navlinks a:hover::after, .navlinks a:focus-visible::after{ width:100%; }
+  .navtoggle{ display:none; }
+
+  /* ---------- hero ---------- */
+  .hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    position:relative;
+    padding-top:72px;
+    overflow:hidden;
+  }
+  .hero-bg-mark{
+    position:absolute;
+    right:-6vw;
+    top:50%;
+    transform:translateY(-50%);
+    font-family:var(--display);
+    font-weight:700;
+    font-size:min(46vw, 560px);
+    line-height:1;
+    color:transparent;
+    -webkit-text-stroke:1px var(--line);
+    user-select:none;
+    pointer-events:none;
+    z-index:0;
+  }
+  .hero-inner{ position:relative; z-index:1; }
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--brass);
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:28px;
+    opacity:0;
+    animation:rise .8s ease forwards;
+    animation-delay:.1s;
+  }
+  .eyebrow::before{
+    content:'';
+    width:28px; height:1px;
+    background:var(--brass);
+  }
+  h1.name{
+    font-family:var(--display);
+    font-weight:600;
+    font-size:clamp(42px, 8vw, 96px);
+    line-height:0.98;
+    letter-spacing:-0.01em;
+    max-width:900px;
+    opacity:0;
+    animation:rise .9s ease forwards;
+    animation-delay:.25s;
+  }
+  h1.name em{
+    font-style:italic;
+    font-weight:300;
+    color:var(--ink-dim);
+  }
+  .tagline{
+    margin-top:26px;
+    max-width:560px;
+    font-size:17px;
+    color:var(--ink-dim);
+    font-weight:300;
+    opacity:0;
+    animation:rise .9s ease forwards;
+    animation-delay:.4s;
+  }
+  .hero-cta{
+    margin-top:44px;
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+    opacity:0;
+    animation:rise .9s ease forwards;
+    animation-delay:.55s;
+  }
+  .btn{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    padding:14px 26px;
+    border-radius:2px;
+    transition:all .25s ease;
+    border:1px solid var(--line);
+  }
+  .btn.primary{
+    background:var(--brass);
+    color:#0d0f12;
+    border-color:var(--brass);
+  }
+  .btn.primary:hover{ background:#dab55c; border-color:#dab55c; transform:translateY(-2px); }
+  .btn.ghost{ color:var(--ink); }
+  .btn.ghost:hover{ border-color:var(--brass); color:var(--brass); transform:translateY(-2px); }
+
+  @keyframes rise{
+    from{ opacity:0; transform:translateY(18px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+
+  .scroll-cue{
+    position:absolute;
+    bottom:36px;
+    left:32px;
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--ink-faint);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .scroll-cue .bar{
+    width:1px; height:34px;
+    background:linear-gradient(var(--brass), transparent);
+  }
+
+  /* ---------- section shared ---------- */
+  section{ padding:120px 0; border-top:1px solid var(--line); }
+  .sec-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    margin-bottom:64px;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+  .sec-label{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--brass);
+  }
+  .sec-title{
+    font-family:var(--display);
+    font-weight:500;
+    font-size:clamp(28px, 4vw, 44px);
+    letter-spacing:-0.01em;
+  }
+
+  .reveal{
+    opacity:0;
+    transform:translateY(24px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  /* ---------- about ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:72px;
+    align-items:start;
+  }
+  .about-text p{ color:var(--ink-dim); font-size:16px; margin-bottom:20px; max-width:52ch; }
+  .about-text p strong{ color:var(--ink); font-weight:500; }
+  .facts{
+    border-left:1px solid var(--line);
+    padding-left:32px;
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+  }
+  .fact dt{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    margin-bottom:6px;
+  }
+  .fact dd{ font-size:15px; color:var(--ink); }
+
+  /* ---------- work ---------- */
+  .work-list{ display:flex; flex-direction:column; }
+  .work-item{
+    display:grid;
+    grid-template-columns:120px 1fr auto;
+    align-items:center;
+    gap:32px;
+    padding:32px 0;
+    border-top:1px solid var(--line);
+    transition:background .3s ease;
+  }
+  .work-item:last-child{ border-bottom:1px solid var(--line); }
+  .work-item:hover{ background:var(--bg-raised); }
+  .work-year{
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--ink-faint);
+  }
+  .work-name{
+    font-family:var(--display);
+    font-size:24px;
+    font-weight:500;
+  }
+  .work-desc{
+    color:var(--ink-dim);
+    font-size:14px;
+    margin-top:6px;
+    max-width:56ch;
+  }
+  .work-tags{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    justify-self:end;
+  }
+  .tag{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.06em;
+    color:var(--ink-dim);
+    border:1px solid var(--line);
+    padding:5px 10px;
+    border-radius:2px;
+    white-space:nowrap;
+  }
+
+  /* ---------- skills ---------- */
+  .skills-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .skill-card{
+    background:var(--bg);
+    padding:36px 28px;
+    transition:background .3s ease;
+  }
+  .skill-card:hover{ background:var(--bg-raised); }
+  .skill-num{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--brass);
+    margin-bottom:16px;
+  }
+  .skill-title{
+    font-family:var(--display);
+    font-size:19px;
+    font-weight:500;
+    margin-bottom:10px;
+  }
+  .skill-desc{ font-size:13.5px; color:var(--ink-dim); }
+
+  /* ---------- contact ---------- */
+  .contact{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:8px;
+  }
+  .contact-title{
+    font-family:var(--display);
+    font-weight:500;
+    font-size:clamp(32px, 6vw, 64px);
+    letter-spacing:-0.01em;
+    line-height:1.05;
+  }
+  .contact-title em{ color:var(--brass); font-style:italic; font-weight:300; }
+  .contact-links{
+    margin-top:40px;
+    display:flex;
+    gap:40px;
+    flex-wrap:wrap;
+  }
+  .contact-links a{
+    font-family:var(--mono);
+    font-size:13px;
+    letter-spacing:0.06em;
+    color:var(--ink-dim);
+    border-bottom:1px solid transparent;
+    padding-bottom:4px;
+    transition:all .25s ease;
+  }
+  .contact-links a:hover{ color:var(--brass); border-color:var(--brass); }
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:32px 0;
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--ink-faint);
+    display:flex;
+    justify-content:space-between;
+  }
+
+  @media (max-width: 760px){
+    .navlinks{ display:none; }
+    .about-grid{ grid-template-columns:1fr; gap:40px; }
+    .facts{ border-left:none; padding-left:0; border-top:1px solid var(--line); padding-top:28px; }
+    .work-item{ grid-template-columns:1fr; gap:8px; }
+    .work-tags{ justify-self:start; margin-top:10px; }
+    .skills-grid{ grid-template-columns:1fr; }
+    section{ padding:80px 0; }
+    footer{ flex-direction:column; gap:10px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="monogram">BJA<span>.</span></div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-bg-mark">BJA</div>
+  <div class="wrap hero-inner">
+    <div class="eyebrow">Portfolio — Est. 2026</div>
+    <h1 class="name">Bruce John B.<br><em>Arevalo</em></h1>
+    <p class="tagline">This is a starter template — swap in your role, story, and real projects below. Every section is ready to edit.</p>
+    <div class="hero-cta">
+      <a href="#work" class="btn primary">View the work</a>
+      <a href="#contact" class="btn ghost">Get in touch</a>
+    </div>
+  </div>
+  <div class="scroll-cue"><span class="bar"></span> Scroll</div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-label">01 · About</span>
+      <h2 class="sec-title">Who I am</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p><strong>Replace this paragraph with your own introduction.</strong> Say what you do, who you do it for, and what makes your approach distinct. Two to three short paragraphs is usually enough — keep it in your own voice.</p>
+        <p>Use the second paragraph for context: your background, what led you here, or a philosophy that shapes how you work. Specificity reads better than a general summary.</p>
+      </div>
+      <dl class="facts reveal">
+        <div class="fact"><dt>Based in</dt><dd>City, Country</dd></div>
+        <div class="fact"><dt>Focus</dt><dd>Add your field or specialty</dd></div>
+        <div class="fact"><dt>Currently</dt><dd>What you're working on now</dd></div>
+        <div class="fact"><dt>Available for</dt><dd>Freelance / Full-time / Collaboration</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-label">02 · Selected Work</span>
+      <h2 class="sec-title">Projects</h2>
+    </div>
+    <div class="work-list">
+      <div class="work-item reveal">
+        <span class="work-year">2026</span>
+        <div>
+          <div class="work-name">Project One</div>
+          <div class="work-desc">One or two lines describing the project, your role, and the outcome. Replace with a real case study.</div>
+        </div>
+        <div class="work-tags"><span class="tag">Tag</span><span class="tag">Tag</span></div>
+      </div>
+      <div class="work-item reveal">
+        <span class="work-year">2025</span>
+        <div>
+          <div class="work-name">Project Two</div>
+          <div class="work-desc">Another project summary goes here — what problem it solved and how you approached it.</div>
+        </div>
+        <div class="work-tags"><span class="tag">Tag</span><span class="tag">Tag</span></div>
+      </div>
+      <div class="work-item reveal">
+        <span class="work-year">2025</span>
+        <div>
+          <div class="work-name">Project Three</div>
+          <div class="work-desc">A short, concrete description works better than a vague one. Add a link if you have one live.</div>
+        </div>
+        <div class="work-tags"><span class="tag">Tag</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-label">03 · Skills</span>
+      <h2 class="sec-title">What I bring</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-num">01</div>
+        <div class="skill-title">Skill Area One</div>
+        <div class="skill-desc">Short description of a core strength or tool set.</div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-num">02</div>
+        <div class="skill-title">Skill Area Two</div>
+        <div class="skill-desc">Short description of a core strength or tool set.</div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-num">03</div>
+        <div class="skill-title">Skill Area Three</div>
+        <div class="skill-desc">Short description of a core strength or tool set.</div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-num">04</div>
+        <div class="skill-title">Skill Area Four</div>
+        <div class="skill-desc">Short description of a core strength or tool set.</div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-num">05</div>
+        <div class="skill-title">Skill Area Five</div>
+        <div class="skill-desc">Short description of a core strength or tool set.</div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-num">06</div>
+        <div class="skill-title">Skill Area Six</div>
+        <div class="skill-desc">Short description of a core strength or tool set.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-label" style="margin-bottom:24px; display:block;">04 · Contact</div>
+    <div class="contact reveal">
+      <div class="contact-title">Let's build<br>something <em>real</em>.</div>
+      <div class="contact-links">
+        <a href="mailto:youremail@example.com">youremail@example.com</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">GitHub</a>
+        <a href="#">Instagram</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; width:100%;">
+    <span>© 2026 Bruce John B. Arevalo</span>
+    <span>Made with care</span>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
