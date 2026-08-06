@@ -234,11 +234,15 @@
   }
 
   .reveal{
-    opacity:0;
-    transform:translateY(24px);
-    transition:opacity .7s ease, transform .7s ease;
+    opacity:1;
+    transform:none;
+    animation:fadeUp .7s ease both;
   }
-  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  @keyframes fadeUp{
+    from{ opacity:0; transform:translateY(24px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
 
   /* ---------- about ---------- */
   .about-grid{
@@ -411,9 +415,9 @@
 <section class="hero">
   <div class="hero-bg-mark">BJA</div>
   <div class="wrap hero-inner">
-    <div class="eyebrow">Portfolio — Est. 2026</div>
+    <div class="eyebrow">Aspiring Professional & Student</div>
     <h1 class="name">Bruce John B.<br><em>Arevalo</em></h1>
-    <p class="tagline">This is a starter template — swap in your role, story, and real projects below. Every section is ready to edit.</p>
+    <p class="tagline">Driven by curiosity, grounded in commitment.</p>
     <div class="hero-cta">
       <a href="#work" class="btn primary">View the work</a>
       <a href="#contact" class="btn ghost">Get in touch</a>
@@ -430,14 +434,18 @@
     </div>
     <div class="about-grid">
       <div class="about-text reveal">
-        <p><strong>Replace this paragraph with your own introduction.</strong> Say what you do, who you do it for, and what makes your approach distinct. Two to three short paragraphs is usually enough — keep it in your own voice.</p>
-        <p>Use the second paragraph for context: your background, what led you here, or a philosophy that shapes how you work. Specificity reads better than a general summary.</p>
+        <p><strong>I am an 18-year-old student currently completing my Senior High School education at the University of the Immaculate Conception.</strong> This digital portfolio serves as a showcase of my academic journey, foundational skills, and readiness to transition into the professional world or higher education.</p>
+        <p>I am passionate about learning, adapting to new challenges, and collaborating on meaningful projects. My curiosity and commitment drive me to grow both academically and personally while preparing for future opportunities.</p>
+        <p><strong>Academic Journey</strong></p>
+        <p><strong>Senior High School</strong> — University of the Immaculate Conception | 2023 – Present<br>Focus: Developing advanced analytical skills, leadership, and specialized academic knowledge.</p>
+        <p><strong>Junior High School</strong> — University of the Immaculate Conception | 2019 – 2023<br>Focus: Built a strong foundation in core sciences, mathematics, and collaborative team projects.</p>
+        <p><strong>Primary School</strong> — University of the Immaculate Conception | 2013 – 2019<br>Focus: Developed early leadership habits, literacy, and fundamental academic skills.</p>
       </div>
       <dl class="facts reveal">
-        <div class="fact"><dt>Based in</dt><dd>City, Country</dd></div>
-        <div class="fact"><dt>Focus</dt><dd>Add your field or specialty</dd></div>
-        <div class="fact"><dt>Currently</dt><dd>What you're working on now</dd></div>
-        <div class="fact"><dt>Available for</dt><dd>Freelance / Full-time / Collaboration</dd></div>
+        <div class="fact"><dt>Based in</dt><dd>Davao City, Philippines</dd></div>
+        <div class="fact"><dt>Focus</dt><dd>Student & Aspiring Professional</dd></div>
+        <div class="fact"><dt>Currently</dt><dd>Senior High School Student at UIC</dd></div>
+        <div class="fact"><dt>Available for</dt><dd>Collaboration & New Opportunities</dd></div>
       </dl>
     </div>
   </div>
@@ -451,28 +459,28 @@
     </div>
     <div class="work-list">
       <div class="work-item reveal">
-        <span class="work-year">2026</span>
+        <span class="work-year">2023–Present</span>
         <div>
-          <div class="work-name">Project One</div>
-          <div class="work-desc">One or two lines describing the project, your role, and the outcome. Replace with a real case study.</div>
+          <div class="work-name">Senior High School Capstone / Major Assignment</div>
+          <div class="work-desc">A major academic project where I contributed through research, analysis, and presentation to solve a meaningful problem with strong attention to detail.</div>
         </div>
-        <div class="work-tags"><span class="tag">Tag</span><span class="tag">Tag</span></div>
+        <div class="work-tags"><span class="tag">Research</span><span class="tag">Presentation</span></div>
       </div>
       <div class="work-item reveal">
-        <span class="work-year">2025</span>
+        <span class="work-year">2019–2023</span>
         <div>
-          <div class="work-name">Project Two</div>
-          <div class="work-desc">Another project summary goes here — what problem it solved and how you approached it.</div>
+          <div class="work-name">Junior High School Science Fair / Group Presentation</div>
+          <div class="work-desc">Worked with a team to create and present an engaging project, strengthening my collaboration, content creation, and communication skills.</div>
         </div>
-        <div class="work-tags"><span class="tag">Tag</span><span class="tag">Tag</span></div>
+        <div class="work-tags"><span class="tag">Teamwork</span><span class="tag">Creativity</span></div>
       </div>
       <div class="work-item reveal">
-        <span class="work-year">2025</span>
+        <span class="work-year">2013–2019</span>
         <div>
-          <div class="work-name">Project Three</div>
-          <div class="work-desc">A short, concrete description works better than a vague one. Add a link if you have one live.</div>
+          <div class="work-name">School-Based Projects & Class Activities</div>
+          <div class="work-desc">Built early habits in organization, leadership, and academic discipline through group assignments, reports, and presentations.</div>
         </div>
-        <div class="work-tags"><span class="tag">Tag</span></div>
+        <div class="work-tags"><span class="tag">Leadership</span><span class="tag">Organization</span></div>
       </div>
     </div>
   </div>
@@ -487,33 +495,33 @@
     <div class="skills-grid">
       <div class="skill-card reveal">
         <div class="skill-num">01</div>
-        <div class="skill-title">Skill Area One</div>
-        <div class="skill-desc">Short description of a core strength or tool set.</div>
+        <div class="skill-title">Research & Analysis</div>
+        <div class="skill-desc">Able to gather information, synthesize findings, and present clear academic conclusions.</div>
       </div>
       <div class="skill-card reveal">
         <div class="skill-num">02</div>
-        <div class="skill-title">Skill Area Two</div>
-        <div class="skill-desc">Short description of a core strength or tool set.</div>
+        <div class="skill-title">Digital Literacy</div>
+        <div class="skill-desc">Proficient in Microsoft Office and Google Workspace for reports, presentations, and data organization.</div>
       </div>
       <div class="skill-card reveal">
         <div class="skill-num">03</div>
-        <div class="skill-title">Skill Area Three</div>
-        <div class="skill-desc">Short description of a core strength or tool set.</div>
+        <div class="skill-title">Creative Problem Solving</div>
+        <div class="skill-desc">Approaches tasks with fresh ideas and practical solutions to overcome challenges effectively.</div>
       </div>
       <div class="skill-card reveal">
         <div class="skill-num">04</div>
-        <div class="skill-title">Skill Area Four</div>
-        <div class="skill-desc">Short description of a core strength or tool set.</div>
+        <div class="skill-title">Team Leadership & Collaboration</div>
+        <div class="skill-desc">Experienced in working with student groups and contributing toward shared goals with accountability.</div>
       </div>
       <div class="skill-card reveal">
         <div class="skill-num">05</div>
-        <div class="skill-title">Skill Area Five</div>
-        <div class="skill-desc">Short description of a core strength or tool set.</div>
+        <div class="skill-title">Effective Communication</div>
+        <div class="skill-desc">Confident in conveying ideas clearly through speaking, writing, and presentation.</div>
       </div>
       <div class="skill-card reveal">
         <div class="skill-num">06</div>
-        <div class="skill-title">Skill Area Six</div>
-        <div class="skill-desc">Short description of a core strength or tool set.</div>
+        <div class="skill-title">Time Management & Organization</div>
+        <div class="skill-desc">Balances deadlines, responsibilities, and personal growth with consistency and discipline.</div>
       </div>
     </div>
   </div>
@@ -525,10 +533,9 @@
     <div class="contact reveal">
       <div class="contact-title">Let's build<br>something <em>real</em>.</div>
       <div class="contact-links">
-        <a href="mailto:youremail@example.com">youremail@example.com</a>
-        <a href="#">LinkedIn</a>
-        <a href="#">GitHub</a>
-        <a href="#">Instagram</a>
+        <a href="mailto:bjarevalpersonal@gmail.com">bjarevalpersonal@gmail.com</a>
+        <a href="tel:+639997301462">09997301462</a>
+        <a href="https://maps.google.com/?q=North+San+Juan+Village+Zone+4+Agdao+Davao+City">North San Juan Village Zone 4, Agdao, Davao City</a>
       </div>
     </div>
   </div>
@@ -540,19 +547,6 @@
     <span>Made with care</span>
   </div>
 </footer>
-
-<script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.classList.add('in');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
-
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
 
 </body>
 </html>
