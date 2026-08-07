@@ -1,0 +1,10 @@
+{
+  "description": "Showcase your skills and achievements with a personalized portfolio featuring doodle designs, interactive animations, and links to social media and projects.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
