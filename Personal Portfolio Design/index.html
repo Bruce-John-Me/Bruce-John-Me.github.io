@@ -1,15 +1,526 @@
-<!doctype html>
-<html lang="<!-- figma:lang -->">
-  <head>
-    <!-- figma:head-start -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><!-- figma:title --></title>
-    <!-- figma:head-end -->
-  </head>
-  <body style="margin:0;padding:0;overflow:hidden">
-    <!-- figma:body-start -->
-    <iframe src="/portfolio.html" style="width:100%;height:100vh;border:none;display:block"></iframe>
-    <!-- figma:body-end -->
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alex Rivera · Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Nunito:wght@400;600;700;800&family=Patrick+Hand&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ── NAV ──────────────────────────────────────────────── -->
+<nav id="main-nav">
+  <span class="nav-logo">✏️ Alex Rivera</span>
+  <div class="nav-links">
+    <a class="nav-link" href="#about">About</a>
+    <a class="nav-link" href="#experience">Experience</a>
+    <a class="nav-link" href="#projects">Projects</a>
+    <a class="nav-link" href="#skills">Skills</a>
+    <a class="nav-link" href="#activities">Activities</a>
+    <a class="nav-link" href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────────────────── -->
+<section id="hero" class="grid-bg">
+  <svg class="deco float"  style="top:14%;left:7%;width:36px" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" fill="#ffd84d" stroke="#1a1209" stroke-width="1.5" stroke-linejoin="round"/></svg>
+  <svg class="deco float2" style="top:22%;right:9%;width:70px" viewBox="0 0 60 60"><ellipse cx="30" cy="30" rx="26" ry="26" stroke="#b89cf5" stroke-width="3" fill="none" stroke-dasharray="5 3"/></svg>
+  <svg class="deco float"  style="top:60%;left:4%;width:90px;animation-delay:.5s" viewBox="0 0 80 20"><path d="M2,10 Q15,2 28,10 Q41,18 54,10 Q67,2 78,10" stroke="#5bc8f5" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+  <svg class="deco float2" style="bottom:28%;right:6%;width:50px;animation-delay:1s" viewBox="0 0 60 60"><ellipse cx="30" cy="30" rx="26" ry="26" stroke="#ffd84d" stroke-width="3" fill="none" stroke-dasharray="5 3"/></svg>
+  <svg class="deco wiggle" style="top:12%;left:42%;width:38px;animation-delay:.3s" viewBox="0 0 40 40"><path d="M36,4 L4,18 L16,22 L22,36 Z" fill="#5bc8f5" stroke="#1a1209" stroke-width="2" stroke-linejoin="round"/><path d="M16,22 L36,4" stroke="#1a1209" stroke-width="2" stroke-linecap="round"/></svg>
+  <svg class="deco float"  style="bottom:22%;left:14%;width:22px;animation-delay:.8s" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" fill="#4ecb8d" stroke="#1a1209" stroke-width="1.5" stroke-linejoin="round"/></svg>
+  <svg class="deco float2" style="bottom:35%;right:22%;width:100px;opacity:.45;animation-delay:1.2s" viewBox="0 0 100 30"><path d="M5,20 Q15,5 25,20 Q35,35 45,20 Q55,5 65,20 Q75,35 85,20 Q92,10 95,15" stroke="#ff6b5b" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+
+  <div class="hero-content">
+    <div class="avatar-wrap pop-in">
+      <div class="avatar">👩‍💻</div>
+      <span class="avatar-star">⭐</span>
+    </div>
+
+    <div class="section-label slide-up" style="animation-delay:.05s">✨ Hey there! I'm</div>
+
+    <h1 class="hero-name">
+      Alex Rivera
+      <svg display="block" width="120" height="14" viewBox="0 0 120 14" fill="none" style="margin:8px auto 0">
+        <path d="M4,10 Q30,3 60,10 Q90,17 116,10" stroke="#ffd84d" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+      </svg>
+    </h1>
+
+    <p class="hero-sub">Full-Stack Developer · UI/UX Enthusiast · Open Source Nerd</p>
+
+    <p class="hero-bio">
+      I build delightful web experiences that feel alive — turning ideas into pixel-perfect,
+      performant products. Based in San Francisco 🌉, obsessed with clean code and even cleaner design.
+    </p>
+
+    <div class="social-row">
+      <a href="https://github.com"    target="_blank" class="social-btn gh">🐙 GitHub</a>
+      <a href="https://linkedin.com"  target="_blank" class="social-btn li">💼 LinkedIn</a>
+      <a href="https://x.com"         target="_blank" class="social-btn tw">🐦 Twitter / X</a>
+      <a href="https://instagram.com" target="_blank" class="social-btn ig">📸 Instagram</a>
+      <a href="mailto:alex@example.com" class="social-btn em">✉️ Email</a>
+    </div>
+
+    <div class="scroll-cue">
+      <span>↓</span>
+      scroll to explore
+    </div>
+  </div>
+</section>
+
+<div id="stats">
+  <div class="stats-track">
+    <div class="stat-chip">⭐ GitHub Stars <span class="val">2.4k</span></div>
+    <div class="stat-chip">📦 Open Source Repos <span class="val">38</span></div>
+    <div class="stat-chip">🚀 Projects Shipped <span class="val">60+</span></div>
+    <div class="stat-chip">⌨️ Years Coding <span class="val">7</span></div>
+    <div class="stat-chip">🌍 Countries Served <span class="val">8</span></div>
+    <div class="stat-chip">📖 Blog Readers/mo <span class="val">80k</span></div>
+    <div class="stat-chip">🏆 Hackathons Won <span class="val">3</span></div>
+    <div class="stat-chip">🎤 Talks Given <span class="val">12</span></div>
+    <div class="stat-chip">⭐ GitHub Stars <span class="val">2.4k</span></div>
+    <div class="stat-chip">📦 Open Source Repos <span class="val">38</span></div>
+    <div class="stat-chip">🚀 Projects Shipped <span class="val">60+</span></div>
+    <div class="stat-chip">⌨️ Years Coding <span class="val">7</span></div>
+    <div class="stat-chip">🌍 Countries Served <span class="val">8</span></div>
+    <div class="stat-chip">📖 Blog Readers/mo <span class="val">80k</span></div>
+    <div class="stat-chip">🏆 Hackathons Won <span class="val">3</span></div>
+    <div class="stat-chip">🎤 Talks Given <span class="val">12</span></div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap reveal">
+        <div class="about-photo">🧑‍🎨</div>
+        <div class="about-badge">🎯</div>
+      </div>
+      <div class="about-text reveal reveal-d2">
+        <div class="section-label">👋 A bit about me</div>
+        <h2 class="section-title">Who Am I?</h2>
+        <svg width="80" height="12" viewBox="0 0 80 12" fill="none" style="margin-bottom:20px">
+          <path d="M2,8 Q20,2 40,8 Q60,14 78,8" stroke="#ff6b5b" stroke-width="3" fill="none" stroke-linecap="round"/>
+        </svg>
+        <p>I'm a full-stack developer with 7 years of experience crafting products that millions of people use every day. My sweet spot is the intersection of engineering and design — building things that are both robust and beautiful.</p>
+        <p>When I'm not pushing code, you'll find me speaking at conferences, mentoring junior devs, or building custom mechanical keyboards.</p>
+        <div class="info-row">
+          <span class="info-pill">📍 San Francisco, CA</span>
+          <span class="info-pill">🎓 CS @ Stanford</span>
+          <span class="info-pill">💼 Open to work</span>
+          <span class="info-pill">🌐 He / Him</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-label">📌 Where I've been</div>
+      <h2 class="section-title">Achievements &amp; Experience</h2>
+      <svg width="80" height="12" viewBox="0 0 80 12" fill="none" style="display:block;margin:6px auto 0">
+        <path d="M2,8 Q20,2 40,8 Q60,14 78,8" stroke="#ff6b5b" stroke-width="3" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <div class="achievement-grid">
+      <div class="achievement-card doodle ink-shadow reveal reveal-d1">
+        <div class="ico">⭐</div>
+        <div class="val">2.4k</div>
+        <div class="lbl">GitHub Stars</div>
+      </div>
+      <div class="achievement-card doodle ink-shadow reveal reveal-d2">
+        <div class="ico">📦</div>
+        <div class="val">38</div>
+        <div class="lbl">Open Source Repos</div>
+      </div>
+      <div class="achievement-card doodle ink-shadow reveal reveal-d3">
+        <div class="ico">🚀</div>
+        <div class="val">60+</div>
+        <div class="lbl">Projects Shipped</div>
+      </div>
+      <div class="achievement-card doodle ink-shadow reveal reveal-d4">
+        <div class="ico">⌨️</div>
+        <div class="val">7</div>
+        <div class="lbl">Years Coding</div>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-line"></div>
+
+      <div class="timeline-item reveal reveal-d1">
+        <div class="timeline-dot" style="background:var(--yellow)"></div>
+        <div class="timeline-card doodle ink-shadow">
+          <div class="timeline-top">
+            <div class="timeline-role">🎨 Senior Frontend Engineer</div>
+            <div class="timeline-period" style="background:var(--yellow)">2023 – Present</div>
+          </div>
+          <div class="timeline-company">@ Figma</div>
+          <p class="timeline-desc">Led the redesign of the comments system, improving response rates by 42%. Built real-time collaboration features used by 10M+ users.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal reveal-d2">
+        <div class="timeline-dot" style="background:var(--sky)"></div>
+        <div class="timeline-card doodle ink-shadow">
+          <div class="timeline-top">
+            <div class="timeline-role">💳 Full-Stack Developer</div>
+            <div class="timeline-period" style="background:var(--sky)">2021 – 2023</div>
+          </div>
+          <div class="timeline-company">@ Stripe</div>
+          <p class="timeline-desc">Built the merchant dashboard from scratch. Integrated fraud detection ML models into the UI pipeline. Shipped 30+ features.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal reveal-d3">
+        <div class="timeline-dot" style="background:var(--mint)"></div>
+        <div class="timeline-card doodle ink-shadow">
+          <div class="timeline-top">
+            <div class="timeline-role">👾 Software Engineer Intern</div>
+            <div class="timeline-period" style="background:var(--mint)">Summer 2020</div>
+          </div>
+          <div class="timeline-company">@ Meta</div>
+          <p class="timeline-desc">Worked on React Native performance tooling. Reduced cold-start time by 18% across the Facebook app.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal reveal-d4">
+        <div class="timeline-dot" style="background:var(--lavender)"></div>
+        <div class="timeline-card doodle ink-shadow">
+          <div class="timeline-top">
+            <div class="timeline-role">🌍 Freelance Developer</div>
+            <div class="timeline-period" style="background:var(--lavender)">2018 – 2021</div>
+          </div>
+          <div class="timeline-company">@ Self-employed</div>
+          <p class="timeline-desc">Shipped 20+ client projects spanning e-commerce, SaaS dashboards, and mobile apps. Clients in 8 countries.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="dot-bg">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-label">🛠 What I've built</div>
+      <h2 class="section-title">Projects</h2>
+      <svg width="80" height="12" viewBox="0 0 80 12" fill="none" style="display:block;margin:6px auto 0">
+        <path d="M2,8 Q20,2 40,8 Q60,14 78,8" stroke="#4ecb8d" stroke-width="3" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <div class="projects-grid">
+      <div class="project-card doodle ink-shadow reveal reveal-d1">
+        <div class="project-head">
+          <div class="project-icon" style="background:var(--yellow)">✏️</div>
+          <div class="project-name">Sketchify</div>
+        </div>
+        <p class="project-desc">AI-powered app that converts wireframes into production-ready React code. 800+ weekly active users.</p>
+        <div class="tag-row">
+          <span class="tag">React</span><span class="tag">OpenAI</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span>
+        </div>
+        <div class="project-footer">
+          <span class="project-stars">⭐ 1,240</span>
+          <a href="https://github.com" target="_blank" class="view-btn" style="background:var(--yellow)">View →</a>
+        </div>
+      </div>
+
+      <div class="project-card doodle ink-shadow reveal reveal-d2">
+        <div class="project-head">
+          <div class="project-icon" style="background:var(--sky)">📋</div>
+          <div class="project-name">Flowboard</div>
+        </div>
+        <p class="project-desc">Drag-and-drop Kanban tool with real-time multiplayer, built with Liveblocks + Next.js.</p>
+        <div class="tag-row">
+          <span class="tag">Next.js</span><span class="tag">Liveblocks</span><span class="tag">Supabase</span><span class="tag">Tailwind</span>
+        </div>
+        <div class="project-footer">
+          <span class="project-stars">⭐ 680</span>
+          <a href="https://github.com" target="_blank" class="view-btn" style="background:var(--sky)">View →</a>
+        </div>
+      </div>
+
+      <div class="project-card doodle ink-shadow reveal reveal-d3">
+        <div class="project-head">
+          <div class="project-icon" style="background:var(--mint)">📊</div>
+          <div class="project-name">PixelDash</div>
+        </div>
+        <p class="project-desc">Open-source analytics dashboard with 15+ chart types and dark mode. Used by 200+ companies.</p>
+        <div class="tag-row">
+          <span class="tag">React</span><span class="tag">Recharts</span><span class="tag">TypeScript</span><span class="tag">Vite</span>
+        </div>
+        <div class="project-footer">
+          <span class="project-stars">⭐ 520</span>
+          <a href="https://github.com" target="_blank" class="view-btn" style="background:var(--mint)">View →</a>
+        </div>
+      </div>
+
+      <div class="project-card doodle ink-shadow reveal reveal-d4">
+        <div class="project-head">
+          <div class="project-icon" style="background:var(--lavender)">⌨️</div>
+          <div class="project-name">TypeRun</div>
+        </div>
+        <p class="project-desc">Multiplayer typing speed game with real-time leaderboard and custom race creation.</p>
+        <div class="tag-row">
+          <span class="tag">Vue 3</span><span class="tag">WebSockets</span><span class="tag">Redis</span><span class="tag">Express</span>
+        </div>
+        <div class="project-footer">
+          <span class="project-stars">⭐ 312</span>
+          <a href="https://github.com" target="_blank" class="view-btn" style="background:var(--lavender)">View →</a>
+        </div>
+      </div>
+
+      <div class="project-card doodle ink-shadow reveal reveal-d5">
+        <div class="project-head">
+          <div class="project-icon" style="background:var(--coral)">🧩</div>
+          <div class="project-name">NomadUI</div>
+        </div>
+        <p class="project-desc">Component library with 60+ handcrafted components. Fully accessible, zero-dependency.</p>
+        <div class="tag-row">
+          <span class="tag">React</span><span class="tag">Storybook</span><span class="tag">Radix UI</span><span class="tag">CSS</span>
+        </div>
+        <div class="project-footer">
+          <span class="project-stars">⭐ 890</span>
+          <a href="https://github.com" target="_blank" class="view-btn" style="background:var(--coral);color:#fff">View →</a>
+        </div>
+      </div>
+
+      <div class="project-card doodle ink-shadow reveal reveal-d6">
+        <div class="project-head">
+          <div class="project-icon" style="background:var(--peach)">💡</div>
+          <div class="project-name">CodePulse</div>
+        </div>
+        <p class="project-desc">VS Code extension showing real-time codebase health metrics as you type.</p>
+        <div class="tag-row">
+          <span class="tag">TypeScript</span><span class="tag">VS Code API</span><span class="tag">AST</span><span class="tag">WebGL</span>
+        </div>
+        <div class="project-footer">
+          <span class="project-stars">⭐ 445</span>
+          <a href="https://github.com" target="_blank" class="view-btn" style="background:var(--peach)">View →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-label">💡 My toolkit</div>
+      <h2 class="section-title">Skills &amp; Certificates</h2>
+      <svg width="80" height="12" viewBox="0 0 80 12" fill="none" style="display:block;margin:6px auto 0">
+        <path d="M2,8 Q20,2 40,8 Q60,14 78,8" stroke="#b89cf5" stroke-width="3" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <input class="tab-inputs" type="radio" id="tab-fe" name="skill-tab" checked />
+    <input class="tab-inputs" type="radio" id="tab-be" name="skill-tab" />
+    <input class="tab-inputs" type="radio" id="tab-do" name="skill-tab" />
+    <input class="tab-inputs" type="radio" id="tab-de" name="skill-tab" />
+
+    <div class="tab-labels">
+      <label class="tab-label lbl-fe" for="tab-fe">🎨 Frontend</label>
+      <label class="tab-label lbl-be" for="tab-be">⚙️ Backend</label>
+      <label class="tab-label lbl-do" for="tab-do">🔧 DevOps</label>
+      <label class="tab-label lbl-de" for="tab-de">✏️ Design</label>
+    </div>
+
+    <div class="tab-panels">
+      <div class="panel-fe">
+        <span class="skill-tag">React</span>
+        <span class="skill-tag">Next.js</span>
+        <span class="skill-tag">TypeScript</span>
+        <span class="skill-tag">Tailwind CSS</span>
+        <span class="skill-tag">Framer Motion</span>
+        <span class="skill-tag">Three.js</span>
+        <span class="skill-tag">Vue 3</span>
+        <span class="skill-tag">Svelte</span>
+      </div>
+      <div class="panel-be">
+        <span class="skill-tag">Node.js</span>
+        <span class="skill-tag">Go</span>
+        <span class="skill-tag">PostgreSQL</span>
+        <span class="skill-tag">Redis</span>
+        <span class="skill-tag">GraphQL</span>
+        <span class="skill-tag">REST APIs</span>
+        <span class="skill-tag">Supabase</span>
+        <span class="skill-tag">Prisma</span>
+      </div>
+      <div class="panel-do">
+        <span class="skill-tag">Docker</span>
+        <span class="skill-tag">AWS</span>
+        <span class="skill-tag">GitHub Actions</span>
+        <span class="skill-tag">Vercel</span>
+        <span class="skill-tag">Linux</span>
+        <span class="skill-tag">Terraform</span>
+        <span class="skill-tag">Kubernetes</span>
+      </div>
+      <div class="panel-de">
+        <span class="skill-tag">Figma</span>
+        <span class="skill-tag">UI/UX Design</span>
+        <span class="skill-tag">Design Systems</span>
+        <span class="skill-tag">Prototyping</span>
+        <span class="skill-tag">Accessibility</span>
+        <span class="skill-tag">Motion Design</span>
+      </div>
+    </div>
+
+    <div class="section-label" style="text-align:center;margin-top:56px;margin-bottom:24px">🏅 Certificates &amp; Credentials</div>
+    <div class="cert-grid">
+      <div class="cert-card doodle ink-shadow reveal reveal-d1" style="background:var(--peach);transform:rotate(1deg)">
+        <div class="cert-icon">☁️</div>
+        <div class="cert-name">AWS Certified Developer</div>
+        <div class="cert-issuer">Amazon Web Services</div>
+        <div class="cert-year">2024</div>
+      </div>
+      <div class="cert-card doodle ink-shadow reveal reveal-d2" style="background:var(--yellow);transform:rotate(-1.5deg)">
+        <div class="cert-icon">🎓</div>
+        <div class="cert-name">Google UX Design</div>
+        <div class="cert-issuer">Google / Coursera</div>
+        <div class="cert-year">2023</div>
+      </div>
+      <div class="cert-card doodle ink-shadow reveal reveal-d3" style="background:var(--sky);transform:rotate(1.2deg)">
+        <div class="cert-icon">⚛️</div>
+        <div class="cert-name">Meta React Specialist</div>
+        <div class="cert-issuer">Meta / Coursera</div>
+        <div class="cert-year">2023</div>
+      </div>
+      <div class="cert-card doodle ink-shadow reveal reveal-d4" style="background:var(--mint);transform:rotate(-.8deg)">
+        <div class="cert-icon">🍃</div>
+        <div class="cert-name">MongoDB Associate</div>
+        <div class="cert-issuer">MongoDB University</div>
+        <div class="cert-year">2022</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="activities">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-label">🎯 Beyond work</div>
+      <h2 class="section-title">Activities</h2>
+      <svg width="80" height="12" viewBox="0 0 80 12" fill="none" style="display:block;margin:6px auto 0">
+        <path d="M2,8 Q20,2 40,8 Q60,14 78,8" stroke="#ffd84d" stroke-width="3" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <div class="activities-grid">
+      <div class="activity-card doodle ink-shadow reveal reveal-d1">
+        <div class="activity-icon">🌐</div>
+        <div class="activity-title">Open Source Contributor</div>
+        <p class="activity-desc">Active maintainer of 3 popular repos. Regular PRs to React, Vite, and Tailwind CSS. Reviewed 200+ community PRs.</p>
+      </div>
+      <div class="activity-card doodle ink-shadow reveal reveal-d2">
+        <div class="activity-icon">🎤</div>
+        <div class="activity-title">Tech Conference Speaker</div>
+        <p class="activity-desc">Spoke at React Summit 2024, JSConf Asia 2023, and CSSDay. Topics: design systems, performance, accessibility.</p>
+      </div>
+      <div class="activity-card doodle ink-shadow reveal reveal-d3">
+        <div class="activity-icon">🏆</div>
+        <div class="activity-title">Hackathon Champion</div>
+        <p class="activity-desc">1st place @ HackMIT 2023, 2nd @ TreeHacks 2022. Judged 5 hackathons across the US and Europe.</p>
+      </div>
+      <div class="activity-card doodle ink-shadow reveal reveal-d4">
+        <div class="activity-icon">🧑‍🏫</div>
+        <div class="activity-title">Coding Mentor</div>
+        <p class="activity-desc">Mentor at CodePath and MLH Fellowship. Helped 40+ bootcamp grads land their first dev job.</p>
+      </div>
+      <div class="activity-card doodle ink-shadow reveal reveal-d5">
+        <div class="activity-icon">✍️</div>
+        <div class="activity-title">Technical Blogger</div>
+        <p class="activity-desc">80k+ monthly readers. Popular series: "React Internals", "CSS Art", and "Building in Public".</p>
+      </div>
+      <div class="activity-card doodle ink-shadow reveal reveal-d6">
+        <div class="activity-icon">⌨️</div>
+        <div class="activity-title">Keyboard Collector</div>
+        <p class="activity-desc">Built 12 custom mechanical keyboards. Active in /r/mechanicalkeyboards with 5k karma.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="grid-bg">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-label">💌 Say hello</div>
+      <h2 class="section-title">Let's Connect</h2>
+      <svg width="80" height="12" viewBox="0 0 80 12" fill="none" style="display:block;margin:6px auto 0">
+        <path d="M2,8 Q20,2 40,8 Q60,14 78,8" stroke="#ff6b5b" stroke-width="3" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <div class="contact-wrap">
+      <p class="contact-lead">Open to new opportunities, collaborations, or just a friendly chat! ☕</p>
+
+      <form class="reveal" action="#" method="post" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label class="form-label" for="name">Your name</label>
+          <input class="form-input" id="name" type="text" placeholder="Ada Lovelace" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="email">Email address</label>
+          <input class="form-input" id="email" type="email" placeholder="ada@example.com" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="message">Message</label>
+          <textarea class="form-textarea" id="message" placeholder="Hi Alex! I'd love to chat about..." required></textarea>
+        </div>
+        <button class="submit-btn" type="submit">Send Message ✉️</button>
+      </form>
+
+      <div id="success-msg" style="display:none;background:var(--mint);padding:40px;text-align:center" class="doodle ink-shadow pop-in">
+        <div style="font-size:3rem;margin-bottom:12px">🎉</div>
+        <div style="font-family:var(--f-display);font-size:1.6rem;font-weight:600;margin-bottom:8px">Message sent!</div>
+        <p style="font-family:var(--f-hand);color:var(--pencil)">I'll get back to you within 24 hours. Stay awesome!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-socials">
+    <a href="https://github.com"    target="_blank" class="footer-icon" title="GitHub">🐙</a>
+    <a href="https://linkedin.com"  target="_blank" class="footer-icon" title="LinkedIn">💼</a>
+    <a href="https://x.com"         target="_blank" class="footer-icon" title="Twitter">🐦</a>
+    <a href="https://instagram.com" target="_blank" class="footer-icon" title="Instagram">📸</a>
+    <a href="mailto:alex@example.com" class="footer-icon" title="Email">✉️</a>
+  </div>
+  <div style="font-family:var(--f-display);font-size:1.4rem;margin-bottom:8px">Alex Rivera</div>
+  <p class="footer-copy">Made with ✏️ &amp; ☕ · 2025 · All rights reserved</p>
+</footer>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => io.observe(el));
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    document.querySelector('form').style.display = 'none';
+    const msg = document.getElementById('success-msg');
+    msg.style.display = 'block';
+  }
+</script>
+
+</body>
 </html>
