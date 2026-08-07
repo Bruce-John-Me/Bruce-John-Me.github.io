@@ -726,6 +726,10 @@ nav.scrolled {
   line-height: 1.7;
   color: var(--pencil);
 }
+.activity-card .view-btn {
+  display: inline-block;
+  margin-top: 16px;
+}
 
 /* ── CONTACT ──────────────────────────────────────────── */
 #contact { background: var(--paper); }
