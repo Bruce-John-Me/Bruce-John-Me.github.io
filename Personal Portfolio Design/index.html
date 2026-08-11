@@ -74,18 +74,18 @@
 
 <div id="stats">
   <div class="stats-track">
-    <div class="stat-chip">⭐ GitHub Stars <span class="val">2.4k</span></div>
-    <div class="stat-chip">📦 Open Source Repos <span class="val">38</span></div>
-    <div class="stat-chip">🚀 Projects Shipped <span class="val">60+</span></div>
-    <div class="stat-chip">⌨️ Years Coding <span class="val">7</span></div>
+    <div class="stat-chip">⭐ GitHub Stars <span class="val" data-stat="stars">0</span></div>
+    <div class="stat-chip">📦 Open Source Repos <span class="val" data-stat="repos">0</span></div>
+    <div class="stat-chip">🚀 Projects Shipped <span class="val" data-stat="shipped">0</span></div>
+    <div class="stat-chip">⌨️ Years Coding <span class="val" data-stat="years">4</span></div>
     <div class="stat-chip">🌍 Countries Served <span class="val">8</span></div>
     <div class="stat-chip">📖 Blog Readers/mo <span class="val">80k</span></div>
     <div class="stat-chip">🏆 Hackathons Won <span class="val">3</span></div>
     <div class="stat-chip">🎤 Talks Given <span class="val">12</span></div>
-    <div class="stat-chip">⭐ GitHub Stars <span class="val">2.4k</span></div>
-    <div class="stat-chip">📦 Open Source Repos <span class="val">38</span></div>
-    <div class="stat-chip">🚀 Projects Shipped <span class="val">60+</span></div>
-    <div class="stat-chip">⌨️ Years Coding <span class="val">7</span></div>
+    <div class="stat-chip">⭐ GitHub Stars <span class="val" data-stat="stars">0</span></div>
+    <div class="stat-chip">📦 Open Source Repos <span class="val" data-stat="repos">0</span></div>
+    <div class="stat-chip">🚀 Projects Shipped <span class="val" data-stat="shipped">0</span></div>
+    <div class="stat-chip">⌨️ Years Coding <span class="val" data-stat="years">4</span></div>
     <div class="stat-chip">🌍 Countries Served <span class="val">8</span></div>
     <div class="stat-chip">📖 Blog Readers/mo <span class="val">80k</span></div>
     <div class="stat-chip">🏆 Hackathons Won <span class="val">3</span></div>
@@ -142,22 +142,22 @@
     <div class="achievement-grid">
       <div class="achievement-card doodle ink-shadow reveal reveal-d1">
         <div class="ico">⭐</div>
-        <div class="val">2.4k</div>
+        <div class="val" data-stat="stars">0</div>
         <div class="lbl">GitHub Stars</div>
       </div>
       <div class="achievement-card doodle ink-shadow reveal reveal-d2">
         <div class="ico">📦</div>
-        <div class="val">38</div>
+        <div class="val" data-stat="repos">0</div>
         <div class="lbl">Open Source Repos</div>
       </div>
       <div class="achievement-card doodle ink-shadow reveal reveal-d3">
         <div class="ico">🚀</div>
-        <div class="val">60+</div>
+        <div class="val" data-stat="shipped">0</div>
         <div class="lbl">Projects Shipped</div>
       </div>
       <div class="achievement-card doodle ink-shadow reveal reveal-d4">
         <div class="ico">⌨️</div>
-        <div class="val">7</div>
+        <div class="val" data-stat="years">4</div>
         <div class="lbl">Years Coding</div>
       </div>
     </div>
@@ -465,6 +465,17 @@
   const projectStarCountsKey = 'portfolio-project-star-counts-v3';
   const projectStarCounts = JSON.parse(localStorage.getItem(projectStarCountsKey) || '{}');
 
+  function updatePortfolioStats() {
+    const totalStars = [...document.querySelectorAll('.project-stars')]
+      .reduce((total, button) => total + (Number(projectStarCounts[button.dataset.project]) > 0 ? 1 : 0), 0);
+    const portfolioRepos = document.querySelectorAll('.project-card, .activity-card').length;
+    const statValues = { stars: totalStars, repos: portfolioRepos, shipped: 0, years: 4 };
+
+    document.querySelectorAll('[data-stat]').forEach(stat => {
+      stat.textContent = statValues[stat.dataset.stat];
+    });
+  }
+
   document.querySelectorAll('.project-stars').forEach(button => {
     const project = button.dataset.project;
     const count = button.querySelector('span');
@@ -476,6 +487,7 @@
       button.classList.toggle('saved', hasStarred);
       button.title = hasStarred ? `Remove star from ${project}` : `Star ${project}`;
       count.textContent = hasStarred ? '1' : '0';
+      updatePortfolioStats();
     }
 
     updateStarCount();
@@ -487,6 +499,7 @@
     });
   });
   localStorage.setItem(projectStarCountsKey, JSON.stringify(projectStarCounts));
+  updatePortfolioStats();
 
   const submittedMessagesKey = 'portfolio-contact-messages';
   const messageWall = document.getElementById('message-wall');
