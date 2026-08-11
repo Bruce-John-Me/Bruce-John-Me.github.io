@@ -237,7 +237,7 @@
           <span class="tag">React</span><span class="tag">OpenAI</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span>
         </div>
         <div class="project-footer">
-          <span class="project-stars">⭐ 1,240</span>
+          <button class="project-stars" type="button" data-project="Sketchify" data-stars="0" aria-pressed="false" title="Save Sketchify">⭐ <span>0</span></button>
           <a href="https://github.com" target="_blank" class="view-btn" style="background:var(--yellow)">View →</a>
         </div>
       </div>
@@ -252,7 +252,7 @@
           <span class="tag">Next.js</span><span class="tag">Liveblocks</span><span class="tag">Supabase</span><span class="tag">Tailwind</span>
         </div>
         <div class="project-footer">
-          <span class="project-stars">⭐ 680</span>
+          <button class="project-stars" type="button" data-project="Flowboard" data-stars="0" aria-pressed="false" title="Save Flowboard">⭐ <span>0</span></button>
           <a href="https://github.com" target="_blank" class="view-btn" style="background:var(--sky)">View →</a>
         </div>
       </div>
@@ -267,7 +267,7 @@
           <span class="tag">React</span><span class="tag">Recharts</span><span class="tag">TypeScript</span><span class="tag">Vite</span>
         </div>
         <div class="project-footer">
-          <span class="project-stars">⭐ 520</span>
+          <button class="project-stars" type="button" data-project="PixelDash" data-stars="0" aria-pressed="false" title="Save PixelDash">⭐ <span>0</span></button>
           <a href="https://github.com" target="_blank" class="view-btn" style="background:var(--mint)">View →</a>
         </div>
       </div>
@@ -282,7 +282,7 @@
           <span class="tag">Vue 3</span><span class="tag">WebSockets</span><span class="tag">Redis</span><span class="tag">Express</span>
         </div>
         <div class="project-footer">
-          <span class="project-stars">⭐ 312</span>
+          <button class="project-stars" type="button" data-project="TypeRun" data-stars="0" aria-pressed="false" title="Save TypeRun">⭐ <span>0</span></button>
           <a href="https://github.com" target="_blank" class="view-btn" style="background:var(--lavender)">View →</a>
         </div>
       </div>
@@ -297,7 +297,7 @@
           <span class="tag">React</span><span class="tag">Storybook</span><span class="tag">Radix UI</span><span class="tag">CSS</span>
         </div>
         <div class="project-footer">
-          <span class="project-stars">⭐ 890</span>
+          <button class="project-stars" type="button" data-project="NomadUI" data-stars="0" aria-pressed="false" title="Save NomadUI">⭐ <span>0</span></button>
           <a href="https://github.com" target="_blank" class="view-btn" style="background:var(--coral);color:#fff">View →</a>
         </div>
       </div>
@@ -312,7 +312,7 @@
           <span class="tag">TypeScript</span><span class="tag">VS Code API</span><span class="tag">AST</span><span class="tag">WebGL</span>
         </div>
         <div class="project-footer">
-          <span class="project-stars">⭐ 445</span>
+          <button class="project-stars" type="button" data-project="CodePulse" data-stars="0" aria-pressed="false" title="Save CodePulse">⭐ <span>0</span></button>
           <a href="https://github.com" target="_blank" class="view-btn" style="background:var(--peach)">View →</a>
         </div>
       </div>
@@ -461,18 +461,22 @@
       <form class="reveal" action="#" method="post" onsubmit="handleSubmit(event)">
         <div class="form-group">
           <label class="form-label" for="name">Your name</label>
-          <input class="form-input" id="name" type="text" placeholder="Ada Lovelace" required />
+          <input class="form-input" id="name" name="name" type="text" placeholder="Ada Lovelace" required />
         </div>
         <div class="form-group">
           <label class="form-label" for="email">Email address</label>
-          <input class="form-input" id="email" type="email" placeholder="ada@example.com" required />
+          <input class="form-input" id="email" name="email" type="email" placeholder="ada@example.com" required />
         </div>
         <div class="form-group">
           <label class="form-label" for="message">Message</label>
-          <textarea class="form-textarea" id="message" placeholder="Hi Alex! I'd love to chat about..." required></textarea>
+          <textarea class="form-textarea" id="message" name="message" placeholder="Hi Alex! I'd love to chat about..." required></textarea>
         </div>
         <button class="submit-btn" type="submit">Send Message ✉️</button>
       </form>
+
+      <div class="message-wall" id="message-wall" aria-live="polite">
+        <div class="section-label message-wall-title">Messages</div>
+      </div>
 
       <div id="success-msg" style="display:none;background:var(--mint);padding:40px;text-align:center" class="doodle ink-shadow pop-in">
         <div style="font-size:3rem;margin-bottom:12px">🎉</div>
@@ -511,11 +515,90 @@
   }, { threshold: 0.1 });
   reveals.forEach(el => io.observe(el));
 
+  const projectStarCountsKey = 'portfolio-project-star-counts-v3';
+  const projectStarCounts = JSON.parse(localStorage.getItem(projectStarCountsKey) || '{}');
+
+  document.querySelectorAll('.project-stars').forEach(button => {
+    const project = button.dataset.project;
+    const count = button.querySelector('span');
+
+    function updateStarCount() {
+      const stars = Number(projectStarCounts[project] || 0);
+      button.setAttribute('aria-pressed', stars > 0);
+      button.classList.toggle('saved', stars > 0);
+      button.title = `Star ${project} (${stars} recorded)`;
+      count.textContent = stars.toLocaleString();
+    }
+
+    updateStarCount();
+    button.addEventListener('click', () => {
+      projectStarCounts[project] = Number(projectStarCounts[project] || 0) + 1;
+      localStorage.setItem(projectStarCountsKey, JSON.stringify(projectStarCounts));
+      updateStarCount();
+    });
+  });
+
+  const submittedMessagesKey = 'portfolio-contact-messages';
+  const messageWall = document.getElementById('message-wall');
+
+  function getSubmittedMessages() {
+    return JSON.parse(localStorage.getItem(submittedMessagesKey) || '[]');
+  }
+
+  function createMessageBubble({ id, name, message }) {
+    const bubble = document.createElement('article');
+    bubble.className = 'message-bubble doodle ink-shadow-sm';
+
+    const sender = document.createElement('div');
+    sender.className = 'message-sender';
+    sender.textContent = name;
+
+    const text = document.createElement('p');
+    text.textContent = message;
+
+    const removeButton = document.createElement('button');
+    removeButton.className = 'message-delete';
+    removeButton.type = 'button';
+    removeButton.textContent = 'Delete';
+    removeButton.setAttribute('aria-label', `Delete message from ${name}`);
+    removeButton.addEventListener('click', () => {
+      const messages = getSubmittedMessages().filter(entry => entry.id !== id);
+      localStorage.setItem(submittedMessagesKey, JSON.stringify(messages));
+      bubble.remove();
+    });
+
+    bubble.append(sender, text, removeButton);
+    messageWall.append(bubble);
+  }
+
+  const storedMessages = getSubmittedMessages();
+  let messagesUpdated = false;
+  storedMessages.forEach(entry => {
+    if (!entry.id) {
+      entry.id = crypto.randomUUID();
+      messagesUpdated = true;
+    }
+    createMessageBubble(entry);
+  });
+  if (messagesUpdated) {
+    localStorage.setItem(submittedMessagesKey, JSON.stringify(storedMessages));
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
-    document.querySelector('form').style.display = 'none';
-    const msg = document.getElementById('success-msg');
-    msg.style.display = 'block';
+    const form = e.currentTarget;
+    const entry = {
+      id: crypto.randomUUID(),
+      name: form.elements.name.value.trim(),
+      message: form.elements.message.value.trim()
+    };
+    const messages = getSubmittedMessages();
+
+    messages.push(entry);
+    localStorage.setItem(submittedMessagesKey, JSON.stringify(messages));
+    createMessageBubble(entry);
+    form.reset();
+    messageWall.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 </script>
 
