@@ -316,6 +316,42 @@
           <a href="https://github.com" target="_blank" class="view-btn" style="background:var(--peach)">View →</a>
         </div>
       </div>
+
+      <div class="project-card doodle ink-shadow reveal reveal-d6">
+        <div class="project-head">
+          <div class="project-icon" style="background:var(--sky)">S</div>
+          <div class="project-name">Student Organization Management</div>
+        </div>
+        <p class="project-desc">A collection of practical Java console exercises built to strengthen core programming logic through authentication flows, data handling, reusable methods, and object-oriented programming.</p>
+        <div class="tag-row">
+          <span class="tag">Role: Java Developer</span><span class="tag">Status: Completed</span><span class="tag">Java</span><span class="tag">OOP</span><span class="tag">Console I/O</span>
+        </div>
+        <div class="tag-row">
+          <span class="tag">Authentication Workflows</span><span class="tag">Arrays &amp; Loops</span><span class="tag">Methods</span><span class="tag">Conditional Logic</span>
+        </div>
+        <div class="project-footer">
+          <button class="project-stars" type="button" data-project="Student Organization Management" data-stars="0" aria-pressed="false" title="Save Student Organization Management">⭐ <span>0</span></button>
+          <a href="https://github.com" target="_blank" class="view-btn" style="background:var(--sky)">View →</a>
+        </div>
+      </div>
+
+      <div class="project-card doodle ink-shadow reveal reveal-d6">
+        <div class="project-head">
+          <div class="project-icon" style="background:var(--lavender)">QA</div>
+          <div class="project-name">GDG on Campus Website QA</div>
+        </div>
+        <p class="project-desc">Quality-assurance work for a private GDG on Campus website prior to launch, focused on finding user-interface inconsistencies, usability issues, and functional bugs.</p>
+        <div class="tag-row">
+          <span class="tag">Role: QA Tester</span><span class="tag">Status: Private</span><span class="tag">QA Testing</span><span class="tag">UI/UX Review</span><span class="tag">Documentation</span>
+        </div>
+        <div class="tag-row">
+          <span class="tag">Responsive Checks</span><span class="tag">Usability Review</span><span class="tag">Issue Documentation</span><span class="tag">Bug Finding</span>
+        </div>
+        <div class="project-footer">
+          <button class="project-stars" type="button" data-project="GDG on Campus Website QA" data-stars="0" aria-pressed="false" title="Save GDG on Campus Website QA">⭐ <span>0</span></button>
+          <a href="https://github.com" target="_blank" class="view-btn" style="background:var(--lavender)">View →</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -375,6 +411,7 @@
       <div class="panel-de">
         <span class="skill-tag">Figma</span>
         <span class="skill-tag">UI/UX Design</span>
+        <span class="skill-tag">QA Testing</span>
         <span class="skill-tag">Design Systems</span>
         <span class="skill-tag">Prototyping</span>
         <span class="skill-tag">Accessibility</span>
@@ -521,22 +558,25 @@
   document.querySelectorAll('.project-stars').forEach(button => {
     const project = button.dataset.project;
     const count = button.querySelector('span');
+    projectStarCounts[project] = Number(projectStarCounts[project] || 0) > 0 ? 1 : 0;
 
     function updateStarCount() {
-      const stars = Number(projectStarCounts[project] || 0);
-      button.setAttribute('aria-pressed', stars > 0);
-      button.classList.toggle('saved', stars > 0);
-      button.title = `Star ${project} (${stars} recorded)`;
-      count.textContent = stars.toLocaleString();
+      const hasStarred = Number(projectStarCounts[project] || 0) > 0;
+      button.setAttribute('aria-pressed', hasStarred);
+      button.classList.toggle('saved', hasStarred);
+      button.title = hasStarred ? `Remove star from ${project}` : `Star ${project}`;
+      count.textContent = hasStarred ? '1' : '0';
     }
 
     updateStarCount();
     button.addEventListener('click', () => {
-      projectStarCounts[project] = Number(projectStarCounts[project] || 0) + 1;
+      const hasStarred = Number(projectStarCounts[project] || 0) > 0;
+      projectStarCounts[project] = hasStarred ? 0 : 1;
       localStorage.setItem(projectStarCountsKey, JSON.stringify(projectStarCounts));
       updateStarCount();
     });
   });
+  localStorage.setItem(projectStarCountsKey, JSON.stringify(projectStarCounts));
 
   const submittedMessagesKey = 'portfolio-contact-messages';
   const messageWall = document.getElementById('message-wall');
